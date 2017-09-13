@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>έργου-Builder</title>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <!-- cabecera -->
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">έργου-Builder </h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Generate a Maven Project</h5>
+      </div>
+<!--       <div class="row center">
+        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+      </div> -->
+      <br><br>
+    </div>
+  </div>
+
+
+<!-- Selector Arquetipo -->
+  <div class="container"> 
+    <div class="section">
+      <div class="row">
+        <form class="col s6">
+     
+        <label>Selector de Arquetipo</label>
+        <select class="browser-default">
+          <option value="" disabled selected>Seleccione tipo de componente</option>
+          <option value="1">Subproceso-Lite</option>
+          <option value="2">Subproceso-Flow</option>
+          <option value="3">SAP</option>
+          <option value="4">Enriquecedor</option>
+        </select>
+       
+      </form>
+      </div>
+    </div>
+  </div>  
+
+
+ <!-- Title Form  -->
+  <div class="container"> 
+    <div class="section">
+      <h5>Project Metadata</h5>
+      <p>Artifact coordinates</p>
+    </div>
+  </div>
+
+  <!-- Form Container  -->
+  <div class="container"> 
+    <div class="section">
+
+      <!-- Inicio Formulario -->
+      <div class="row">
+        <form id="form" name="form" action="/passdata" method="post" class="col s12">
+
+          <!-- Columna A -->
+          <div class="col s6">
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="<com.bankia.ioi>" id="groupId" name="groupId" type="text" class="validate" onchange="generatePackageName()">
+                <label for="groupId">GroupID</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="<1.0.0-SNAPSHOT>" id="version" name="version" type="text" class="validate">
+                <label for="version">Version</label>
+              </div>
+            </div>
+
+            <div class="row">  
+              <div class="input-field col s12">
+                <input placeholder="<com.bankia.ioi>" id="package" name="package" type="text" class="validate">
+                <label for="package">Package</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="<AbrirExpedienteSBP>" id="artifactId" name="artifactId" type="text" class="validate" onchange="generatePackageName()">
+                <label for="artifactId">ArtifactId</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="<cuentas/expedientes>" id="flowNameFolder" name="flowNameFolder" type="text" class="validate">
+                <label for="flowNameFolder">FlowNameFolder</label>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Columna B -->
+          <div class="col s6">
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="<0001>" id="fuid" name="fuid" type="text" class="validate">
+                <label for="fuid">FUID</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="<1_0>" id="sbpVersion" name="sbpVersion" type="text" class="validate">
+                <label for="sbpVersion">SBP_Version</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="<AbrirExpediente>" id="action1" name="action1" type="text" class="validate">
+                <label for="action1">Action_1</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="<SI (flujo compuesto)/ NO (flujo simple-Valor por defecto)>" id="action1Composite" name="action1Composite" type="text" class="validate">
+                <label for="action1Composite">Action_1_Composite</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="<AbrirExpedienteSNG>" id="servicio1Name" name="servicio1Name" type="text" class="validate">
+                <label for="servicio1Name">Servicio_1_Name</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="<1.0>" id="servicio1Version" name="servicio1Version" type="text" class="validate">
+                <label for="servicio1Version">Servicio_1_Version</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row center">
+            <a href="/build" id="download" type="submit" name="download" class="btn-large waves-effect waves-light orange">Construir</a>
+          </div>
+        <!-- <a class="waves-effect waves-light btn" href="/test">button</a> -->
+
+
+</form>
+</div>
+
+</div>
+</div> <!-- FIN Form container  --> 
+
+
+
+<!-- Footer -->
+<footer class="page-footer orange">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Company Bio</h5>
+        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+      </div>
+
+      <div class="col l3 s12">
+        <h5 class="white-text">Settings</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+<!--   <h3>Hello from index</h3>
+
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Card Title</span>
+          <p>I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a class="waves-effect waves-light btn" href="/test">button</a> -->
+
+
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/cmd.js"></script>
+  </body>
+  </html>
