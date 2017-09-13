@@ -23,7 +23,7 @@ app.post('/passdata', function (req, res) {
 
 	console.log(`printing ${JSON.stringify(req.body, null, 2)}`);
 
-	const groupId = req.params.groupId;
+	const groupId = req.body.groupId;
 
     if (groupId != '') {
     	console.log('groupId dataOk - call-[runCommand]:' + groupId);
@@ -33,7 +33,7 @@ app.post('/passdata', function (req, res) {
     } else {
     	console.log('groupId dataKO:' + groupId);
     }
-    res.send('Got a POST request');
+    //res.send('Got a POST request');
 });
 
 // app.put('/user', function (req, res) {
