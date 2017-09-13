@@ -4,6 +4,8 @@ var express = require('express');
 var nrc = require('node-run-cmd');
 var zipFolder = require('zip-folder');
 
+var bodyParser = require('body-parser');
+
 
 const folder = 'dateUtils';
 const zipFile = folder + '.zip';
@@ -12,23 +14,22 @@ const zipFile = folder + '.zip';
 
 var app = express();
 app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', express.static(path.join(__dirname, 'public')));
 // app.use('/', express.static(__dirname + '/public'));
 
-
-app.get('/build', function (req, res) {
-	runCommand(res);
-});
-
 app.post('/passdata', function (req, res) {
 
-	var groupId = req.body.groupId || '';
+	console.log(`printing ${JSON.stringify(req.body, null, 2)}`);
 
-    if(err) {
-    	console.log('Error passdata!', err);
-    } if (groupId != '') {
+	const groupId = req.params.groupId;
+
+    if (groupId != '') {
     	console.log('groupId dataOk - call-[runCommand]:' + groupId);
-    	runCommand(res);
+    	runCommand(res, {
+    		groupId
+    	});
     } else {
     	console.log('groupId dataKO:' + groupId);
     }
@@ -47,12 +48,11 @@ app.post('/passdata', function (req, res) {
 
 
 
-function runCommand(res){
+function runCommand(res, params){
 	// nrc.run('mkdir foo');
-	const groupId = res.groupId;
 
-
-	nrc.run(`mvn.cmd archetype:generate -DgroupId=`+ groupId + `-DartifactId=dateUtils -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`).then((exitCodes) => {
+	nrc.run(`mvn.cmd archetype:generate -DgroupId=${params.groupId} -DartifactId=dateUtils -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`)
+	.then((exitCodes) => {
 		console.log(`exitcodes: ${exitCodes}`);
 		console.log('groupId: ' + groupId)
 		if (exitCodes == 0) {
@@ -62,6 +62,8 @@ function runCommand(res){
 		console.log('error', err);
 	});
 }
+
+
 
 function compressAndSend(res) {
 	console.info('compressAndSend');

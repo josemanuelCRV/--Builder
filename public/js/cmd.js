@@ -12,8 +12,6 @@
 
 
 function runCommand(){
- fetch("/build").then(()=>console.log("desde cmd.js"))
-console.log("hola");
 }
 
 
