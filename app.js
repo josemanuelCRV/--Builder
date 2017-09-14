@@ -3,6 +3,9 @@ var express = require('express');
 var nrc = require('node-run-cmd');
 var zipFolder = require('zip-folder');
 var bodyParser = require('body-parser');
+var rimraf = require('rimraf');
+// var cmd = require('cmd');
+// console.log(typeof cmd.submitForm); // => 'function'
 
 var app = express();
 app.use(express.static('public'));
@@ -15,14 +18,33 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 app.post('/passdata', function (req, res) {
 
 	console.log(`printing ${JSON.stringify(req.body, null, 2)}`);
+	
 	const groupId = req.body.groupId;
 	const artifactId = req.body.artifactId;
+
+	const version = req.body.version;
+	const packageName = req.body.packageName;
+	const flowNameFolder = req.body.flowNameFolder;
+	const fuid = req.body.fuid;
+	const sbpVersion = req.body.sbpVersion;
+	const action1 = req.body.action1;
+	const action1Composite = req.body.action1Composite;
+	const servicio1Version = req.body.servicio1Version;
+
 
 	if (groupId != '') {
 		console.log('groupId dataOk - call-[runCommand]:' + groupId);
 		runCommand(res, {
 			groupId,
-			artifactId
+			artifactId,
+			version,
+			packageName,
+			flowNameFolder,
+			fuid,
+			sbpVersion,
+			action1,
+			action1Composite,
+			servicio1Version
 		});
 	} else {
 		console.log('groupId dataKO:' + groupId);
@@ -56,6 +78,7 @@ function compressAndSend(res, params) {
 		} else {
 			sendToClient(res, params);
 			console.log('EXCELLENT');
+			
 		}
 	});
 }
@@ -67,6 +90,37 @@ function sendToClient(res, params) {
 
 	// res.download(path.join(__dirname, './', '${params.artifactId}.zip'));
 	res.download(path.join(__dirname, './', filename));
+
+	deleteFilesAfterDownload(res, params);
+}
+
+
+
+function deleteFilesAfterDownload(res, params){
+
+	const folder = `${params.artifactId}`;
+	const zipFolder = `${params.artifactId}.zip`;
+
+	rimraf(path.join(__dirname, './', folder), function () { console.log('Folder was deleted successfully!!'); });	
+
+	rimraf(path.join(__dirname, './', zipFolder), function () { console.log('Zip Folder was deleted successfully!!'); });
+}
+
+
+
+
+function cleanForm(res, params){
+
+	const groupId = `${groupId}`;
+	console.log(groupId);
+
+	if(groupId != ""){
+		groupId == "";
+	}else{
+		console.log(`Campo vacio: ${groupId}`);
+	}
+	
+
 }
 
 
