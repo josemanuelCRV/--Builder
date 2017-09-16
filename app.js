@@ -85,7 +85,9 @@ function sendToClient(res, params) {
 	console.info('sending...');
 	const filename = `${params.artifactId}.zip`;
 
-	// res.download(path.join(__dirname, './', '${params.artifactId}.zip'));
+	// res.setHeader('content-type', 'application/zip');
+	// res.type('application/zip')
+
 	res.download(path.join(__dirname, './', filename));
 
 	deleteFilesAfterDownload(res, params);
