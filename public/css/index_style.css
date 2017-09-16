@@ -1,0 +1,39 @@
+.input-field label {
+    font-weight: bold;
+    color: #7d7d7d;
+    font-size: 1.188em;
+   /* position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    
+    cursor: text;
+    -webkit-transition: -webkit-transform .2s ease-out;
+    transition: -webkit-transform .2s ease-out;
+    transition: transform .2s ease-out;
+    transition: transform .2s ease-out, -webkit-transform .2s ease-out;
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    text-align: initial;
+    -webkit-transform: translateY(12px);
+    transform: translateY(12px);
+    pointer-events: none;*/
+}
+
+.body{
+
+
+}
+
+
+nav {
+    background-color: #B2C300 !important;
+}
+
+
+.green {
+    background-color: #FF9E1B !important;
+    color: black;
+    font-weight: bold;
+    
+}

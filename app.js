@@ -4,8 +4,6 @@ var nrc = require('node-run-cmd');
 var zipFolder = require('zip-folder');
 var bodyParser = require('body-parser');
 var rimraf = require('rimraf');
-// var cmd = require('cmd');
-// console.log(typeof cmd.submitForm); // => 'function'
 
 var app = express();
 app.use(express.static('public'));
@@ -21,7 +19,6 @@ app.post('/passdata', function (req, res) {
 	
 	const groupId = req.body.groupId;
 	const artifactId = req.body.artifactId;
-
 	const version = req.body.version;
 	const packageName = req.body.packageName;
 	const flowNameFolder = req.body.flowNameFolder;
@@ -104,26 +101,14 @@ function deleteFilesAfterDownload(res, params){
 	rimraf(path.join(__dirname, './', folder), function () { console.log('Folder was deleted successfully!!'); });	
 
 	rimraf(path.join(__dirname, './', zipFolder), function () { console.log('Zip Folder was deleted successfully!!'); });
-}
-
-
-
-
-function cleanForm(res, params){
-
-	const groupId = `${groupId}`;
-	console.log(groupId);
-
-	if(groupId != ""){
-		groupId == "";
-	}else{
-		console.log(`Campo vacio: ${groupId}`);
-	}
-	
 
 }
+
+
 
 
 app.listen(3000, function () {
 	console.log('bnk-Builder app listening on port 3000!');
 });
+
+
