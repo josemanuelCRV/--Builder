@@ -1,315 +1,261 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" type="image/png" href="./images/favicon.ico">
-  <title>έργου-Builder</title>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <link rel="stylesheet" href="./css/index_style.css">
-
-</head>
-
-<body>
-  <nav class="light-green.lighten-1" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">
-        <img src="/images/logo_BANKIA.svg" alt="Bankia">
-      </a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-
-  <!-- cabecera -->
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center orange-text">έργου-Builder </h1>
-      <div class="row center">
-        <h5 class="header col s12 light">Generate a Maven Project</h5>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="icon" type="image/png" href="./images/favicon.ico">
+      <title>έργου-Builder</title>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <link rel="stylesheet" href="./css/index_style.css">
+   </head>
+   <body>
+      <nav class="light-green.lighten-1" role="navigation">
+         <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo">
+            <img src="/images/logo_BANKIA.svg" alt="Bankia">
+            </a>
+            <ul class="right hide-on-med-and-down">
+               <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <ul id="nav-mobile" class="side-nav">
+               <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+         </div>
+      </nav>
+      <!-- cabecera -->
+      <div class="section no-pad-bot" id="index-banner">
+         <div class="container">
+            <br><br>
+            <h1 class="header center orange-text">έργου-Builder </h1>
+            <div class="row center">
+               <h5 class="header col s12 light">Generate a Maven Project</h5>
+            </div>
+            <br><br>
+         </div>
       </div>
-      <br><br>
-    </div>
-  </div>
-
- <!-- Title Form  -->
-  <div class="container"> 
-    <div class="section">
-      <h5>Metadatos del Proyecto</h5>
-      <p>Coordenadas del artefacto</p>
-    </div>
-  </div>
-
-  <!-- Selector de Arquetipo -->
-  <div class="container">
-    <div class="row">
-      <form>
-        <div class="input-field col s6" style="margin-bottom: 30px">
-          <select id="archetype-selector" required>
-            <option value="" selected disabled>Seleccione Arquetipo</option>
-            <option value="lite" onchange="checkSelected()">Subproceso-Lite</option>
-            <option value="flow" onchange="checkSelected()">Subproceso-Flow</option>
-            <option value="sap" onchange="checkSelected()">SAP</option>
-            <option value="enr" onchange="checkSelected()">Enriquecedor</option>
-          </select>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Form Container  -->
-  <div class="container" style="margin-bottom: 100px"> 
-    <div class="section">
-
-      <!-- Inicio Formulario -->
-      <div class="row">
-        <form id="form" name="form" action="/passdata" method="post" class="col s12">
-
-          <!-- Columna A -->
-          <div class="col s6">
-
-            <!-- ArtifactId -->
+      <!-- Title Form  -->
+      <div class="container">
+         <div class="section">
+            <h5>Metadatos del Proyecto</h5>
+            <p>Coordenadas del artefacto</p>
+         </div>
+      </div>
+      <!-- Form Container  -->
+      <div class="container" style="margin-bottom: 100px">
+         <div class="section">
+            <!-- Inicio Formulario -->
             <div class="row">
-              <div class="input-field col s12">
-                <input placeholder="<AbrirExpedienteSBP>" id="artifactId" name="artifactId" type="text"  onchange="generatePackageName()" required>
-                <label for="artifactId">ArtifactId</label>
-              </div>
+               <form id="form" name="form" action="/passdata" method="post" class="col s12">
+                  <!-- Selector de Arquetipo -->
+                  <div class="row">
+                     <div class="input-field col s3" style="margin-bottom: 30px">
+                        <select id="archetypeSelector" name="archetypeSelector"  required>
+                           <option value="" selected disabled>Seleccione Arquetipo</option>
+                           <option value="lite">Subproceso-Lite</option>
+                           <option value="flow">Subproceso-Flow</option>
+                           <option value="sap">SAP</option>
+                           <option value="enr">Enriquecedor</option>
+                        </select>
+                     </div>
+                  </div>
+                  <!-- Columna A -->
+                  <div class="col s6">
+                     <!-- ArtifactId -->
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <input placeholder="<AbrirExpedienteSBP>" id="artifactId" name="artifactId" type="text"  onchange="generatePackageName()" required>
+                           <label for="artifactId">ArtifactId</label>
+                        </div>
+                     </div>
+                     <!-- GroupID -->
+                     <div class="row" id="groupId" name="groupId">
+                        <div class="input-field col s12">
+                           <input placeholder="<com.bankia.ioi>" id="groupId" name="groupId" type="text" onchange="generatePackageName()" required>
+                           <label for="groupId">GroupID</label>
+                        </div>
+                     </div>
+                     <!-- Version -->
+                     <div class="row" id="version" name="version">
+                        <div class="input-field col s12">
+                           <input placeholder="<1.0.0-SNAPSHOT>" id="version" name="version" type="text" class="validate" required>
+                           <label for="version">Version</label>
+                        </div>
+                     </div>
+                     <!-- Package -->
+                     <div class="row" id="package" name="package">
+                        <div class="input-field col s12">
+                           <input placeholder="<com.bankia.ioi>" id="packageName" name="packageName" type="text" required>
+                           <label for="package">Package</label>
+                        </div>
+                     </div>
+                     <!-- FlowNameFolder LITE-->
+                     <div class="row" id="flowNameFolder" name="flowNameFolder">
+                        <div class="input-field col s12">
+                           <input placeholder="<cuentas/expedientes>" id="flowNameFolder" name="flowNameFolder" type="text">
+                           <label for="flowNameFolder">FlowNameFolder</label>
+                        </div>
+                     </div>
+                     <!-- sapSelector Type SAP-->
+                     <div class="row" id="type" name="type" style="display:none;">
+                        <div class="input-field col s6" style="margin-bottom: 30px">
+                           <select id="sapSelector" required>
+                              <option value="default" selected disabled>Seleccione Tipo</option>
+                              <option value="sit">SIT</option>
+                              <option value="tabit">TABIT</option>
+                              <option value="sng">SNG</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- /////////// FIN COLUMNA A ///////////-->
+                  <!-- /////////// COLUMNA B  //////////////-->
+                  <div class="col s6">
+                     <!-- FUID  LITE-->
+                     <div class="row" id="fuid" name="fuid">
+                        <div class="input-field col s12">
+                           <input placeholder="<0001>" id="fuid" name="fuid" type="text" class="validate">
+                           <label for="fuid">FUID</label>
+                        </div>
+                     </div>
+                     <!-- servicioName  SAP-->
+                     <div class="row" id="servicioName" name="servicioName" style="display:none;">
+                        <div class="input-field col s12">
+                           <input placeholder="<NP>" id="servicioName" name="servicioName" type="text" class="validate">
+                           <label for="servicioName">ServiceName</label>
+                        </div>
+                     </div>
+                     <!-- SBP_Version LITE -->
+                     <div class="row" id="sbpVersion" name="sbpVersion">
+                        <div class="input-field col s12">
+                           <input placeholder="<1_0>" id="sbpVersion" name="sbpVersion" type="text" class="validate">
+                           <label for="sbpVersion">SBP_Version</label>
+                        </div>
+                     </div>
+                     <!-- servicioVersion SAP -->
+                     <div class="row" id="servicioVersion" name="servicioVersion" style="display:none;">
+                        <div class="input-field col s12">
+                           <input placeholder="<1_0>" id="servicioVersion" name="servicioVersion" type="text" class="validate">
+                           <label for="servicioVersion">ServicieVersion</label>
+                        </div>
+                     </div>
+                     <!-- Action_1 LITE-->
+                     <div class="row" id="action1" name="action1">
+                        <div class="input-field col s12">
+                           <input placeholder="<AbrirExpediente>" id="action1" name="action1" type="text" class="validate">
+                           <label for="action1">Action_1</label>
+                        </div>
+                     </div>
+                     <!-- cacheable SAP-->
+                     <div class="row" id="cacheable" name="cacheable" style="display:none;">
+                        <div class="input-field col s12">
+                           <input placeholder="<NO / SI>" id="cacheable" name="cacheable" type="text" class="validate">
+                           <label for="cacheable">Cacheable</label>
+                        </div>
+                     </div>
+                     <!-- Action_1_Composite LITE-->
+                     <div class="row" id="action1Composite" name="action1Composite">
+                        <div class="input-field col s12">
+                           <input placeholder="<SI (flujo compuesto)/ NO (flujo simple-Valor por defecto)>" id="action1Composite" name="action1Composite" type="text" class="validate">
+                           <label for="action1Composite">Action_1_Composite</label>
+                        </div>
+                     </div>
+                     <!-- Din SAP-->
+                     <div class="row" id="in" name="in" style="display:none;">
+                        <div class="input-field col s12">
+                           <input placeholder="<SI / NO >" id="in" name="in" type="text" class="validate">
+                           <label for="action1Composite">Din</label>
+                        </div>
+                     </div>
+                     <!-- Servicio_1_Name LITE-->
+                     <div class="row" id="servicio1Name" name="servicio1Name">
+                        <div class="input-field col s12">
+                           <input placeholder="<AbrirExpedienteSNG>" id="servicio1Name" name="servicio1Name" type="text" class="validate">
+                           <label for="servicio1Name">Servicio_1_Name</label>
+                        </div>
+                     </div>
+                     <!-- sapVersion SAP-->
+                     <div class="row" id="sapVersion" name="sapVersion" style="display:none;">
+                        <div class="input-field col s12">
+                           <input placeholder="<sapVersion>" id="sapVersion" name="sapVersion" type="text" class="validate">
+                           <label for="sapVersion">SAP-Version</label>
+                        </div>
+                     </div>
+                     <!-- Servicio_1_Version -LITE -->
+                     <div class="row" id="servicio1Version" name="servicio1Version">
+                        <div class="input-field col s12">
+                           <input placeholder="<1.0>" id="servicio1Version" name="servicio1Version" type="text" class="validate">
+                           <label for="servicio1Version">Servicio_1_Version</label>
+                        </div>
+                     </div>
+                     <!-- sapDescription SAP -->
+                     <div class="row" id="sapDescription" name="sapDescription" style="display:none;">
+                        <div class="input-field col s12">
+                           <input placeholder="<Unknowed>" id="sapDescription" name="sapDescription" type="text" class="validate">
+                           <label for="sapDescription">SAP-Description</label>
+                        </div>
+                     </div>
+                     <!-- sapFolder SAP -->
+                     <div class="row" id="sapFolder" name="sapFolder" style="display:none;">
+                        <div class="input-field col s12">
+                           <input placeholder="<SAP/FOLDER>" id="sapFolder" name="sapFolder" type="text" class="validate">
+                           <label for="sapFolder">SAP-Folder</label>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- BTN DOWNLOAD -->
+                  <div class="col s12" style="margin-top: 30px">
+                     <div class="row center">
+                        <input id="download" type="submit" name="download" class="btn-large waves-effect waves-light green" value="crear proyecto" />
+                     </div>
+                     <!-- <a class="waves-effect waves-light btn" href="/test">button</a> -->
+                  </div>
+               </form>
             </div>
-
-            <!-- GroupID -->
-            <div class="row" id="groupId" name="groupId">
-              <div class="input-field col s12">
-                <input placeholder="<com.bankia.ioi>" id="groupId" name="groupId" type="text" onchange="generatePackageName()" required>
-                <label for="groupId">GroupID</label>
-              </div>
-            </div>            
-
-            <!-- Version -->
-            <div class="row" id="version" name="version">
-              <div class="input-field col s12">
-                <input placeholder="<1.0.0-SNAPSHOT>" id="version" name="version" type="text" class="validate" required>
-                <label for="version">Version</label>
-              </div>
-            </div>
-
-            <!-- Package -->
-            <div class="row" id="package" name="package">  
-              <div class="input-field col s12">
-                <input placeholder="<com.bankia.ioi>" id="packageName" name="packageName" type="text" required>
-                <label for="package">Package</label>
-              </div>
-            </div>
-
-            <!-- FlowNameFolder LITE-->
-            <div class="row" id="flowNameFolder" name="flowNameFolder">
-              <div class="input-field col s12">
-                <input placeholder="<cuentas/expedientes>" id="flowNameFolder" name="flowNameFolder" type="text">
-                <label for="flowNameFolder">FlowNameFolder</label>
-              </div>
-            </div>
-
-            <div class="row" id="type" name="type" style="display:none;">
-             <div class="input-field col s6" style="margin-bottom: 30px">
-              <select id="sap-selector" required>
-                <option value="default" selected disabled>Seleccione Tipo</option>
-                <option value="sit">SIT</option>
-                <option value="tabit">TABIT</option>
-                <option value="sng">SNG</option>
-              </select>
-            </div>
-          </div>
-
-        </div>
-        <!-- /////////// FIN COLUMNA A ///////////-->
-
-
-        <!-- /////////// COLUMNA B  //////////////-->
-        <!-- FUID  LITE-->
-        <div class="col s6">
-
-          <div class="row" id="fuid" name="fuid">
-            <div class="input-field col s12">
-              <input placeholder="<0001>" id="fuid" name="fuid" type="text" class="validate">
-              <label for="fuid">FUID</label>
-            </div>
-          </div>      
-          <!-- servicioName  SAP-->
-          <div class="row" id="servicioName" name="type" style="display:none;">
-            <div class="input-field col s12">
-              <input placeholder="<NP>" id="servicioName" name="servicioName" type="text" class="validate">
-              <label for="servicioName">ServiceName</label>
-            </div>
-          </div>
-
-
-          <!-- SBP_Version LITE -->
-          <div class="row" id="sbpVersion" name="sbpVersion">
-            <div class="input-field col s12">
-              <input placeholder="<1_0>" id="sbpVersion" name="sbpVersion" type="text" class="validate">
-              <label for="sbpVersion">SBP_Version</label>
-            </div>
-          </div>
-          <!-- servicioVersion SAP -->
-          <div class="row" id="servicioVersion" name="servicioVersion" style="display:none;">
-            <div class="input-field col s12">
-              <input placeholder="<1_0>" id="servicioVersion" name="servicioVersion" type="text" class="validate">
-              <label for="servicioVersion">ServicieVersion</label>
-            </div>
-          </div>
-
-
-          <!-- Action_1 LITE-->
-          <div class="row" id="action1" name="action1">
-            <div class="input-field col s12">
-              <input placeholder="<AbrirExpediente>" id="action1" name="action1" type="text" class="validate">
-              <label for="action1">Action_1</label>
-            </div>
-          </div>
-          <!-- cacheable SAP-->
-          <div class="row" id="cacheable" name="cacheable" style="display:none;">
-            <div class="input-field col s12">
-              <input placeholder="<NO / SI>" id="cacheable" name="cacheable" type="text" class="validate">
-              <label for="cacheable">Cacheable</label>
-            </div>
-          </div>
-
-
-          <!-- Action_1_Composite LITE-->
-          <div class="row" id="action1Composite" name="action1Composite">
-            <div class="input-field col s12">
-              <input placeholder="<SI (flujo compuesto)/ NO (flujo simple-Valor por defecto)>" id="action1Composite" name="action1Composite" type="text" class="validate">
-              <label for="action1Composite">Action_1_Composite</label>
-            </div>
-          </div>
-          <!-- Din SAP-->
-          <div class="row" id="in" name="in" style="display:none;">
-            <div class="input-field col s12">
-              <input placeholder="<SI / NO >" id="in" name="in" type="text" class="validate">
-              <label for="action1Composite">Din</label>
-            </div>
-          </div>
-
-
-          <!-- Servicio_1_Name LITE-->
-          <div class="row" id="servicio1Name" name="servicio1Name">
-            <div class="input-field col s12">
-              <input placeholder="<AbrirExpedienteSNG>" id="servicio1Name" name="servicio1Name" type="text" class="validate">
-              <label for="servicio1Name">Servicio_1_Name</label>
-            </div>
-          </div>
-          <!-- sapVersion SAP-->
-          <div class="row" id="sapVersion" name="sapVersion" style="display:none;">
-            <div class="input-field col s12">
-              <input placeholder="<sapVersion>" id="sapVersion" name="sapVersion" type="text" class="validate">
-              <label for="sapVersion">SAP-Version</label>
-            </div>
-          </div>
-
-
-          <!-- Servicio_1_Version -LITE -->
-          <div class="row" id="servicio1Version" name="servicio1Version">
-            <div class="input-field col s12">
-              <input placeholder="<1.0>" id="servicio1Version" name="servicio1Version" type="text" class="validate">
-              <label for="servicio1Version">Servicio_1_Version</label>
-            </div>
-          </div>
-          <!-- sapDescription SAP -->
-          <div class="row" id="sapDescription" name="sapDescription" style="display:none;">
-            <div class="input-field col s12">
-              <input placeholder="<Unknowed>" id="sapDescription" name="sapDescription" type="text" class="validate">
-              <label for="sapDescription">SAP-Description</label>
-            </div>
-          </div>
-
-          <!-- sapFolder SAP -->
-          <div class="row" id="sapFolder" name="sapFolder" style="display:none;">
-            <div class="input-field col s12">
-              <input placeholder="<SAP/FOLDER>" id="sapFolder" name="sapFolder" type="text" class="validate">
-              <label for="sapFolder">SAP-Folder</label>
-            </div>
-          </div>
-
-        </div>
-
-
-        <!-- BTN DOWNLOAD -->
-        <div class="col s12" style="margin-top: 30px">
-          <div class="row center">
-            <input id="download" type="submit" name="download" class="btn-large waves-effect waves-light green" value="crear proyecto" />
-          </div>
-          <!-- <a class="waves-effect waves-light btn" href="/test">button</a> -->
-        </div>
-
-
-
-      </form>
-    </div>
-
-  </div>
-</div> <!-- FIN Form container  --> 
-
-
-
-<!-- Footer -->
-<footer class="page-footer orange">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Company Bio</h5>
-        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+         </div>
       </div>
-
-      <div class="col l3 s12">
-        <h5 class="white-text">Settings</h5>
-        <ul>
-          <li><a class="white-text" href="#!">Link 1</a></li>
-          <li><a class="white-text" href="#!">Link 2</a></li>
-          <li><a class="white-text" href="#!">Link 3</a></li>
-          <li><a class="white-text" href="#!">Link 4</a></li>
-        </ul>
-      </div>
-      <div class="col l3 s12">
-        <h5 class="white-text">Connect</h5>
-        <ul>
-          <li><a class="white-text" href="#!">Link 1</a></li>
-          <li><a class="white-text" href="#!">Link 2</a></li>
-          <li><a class="white-text" href="#!">Link 3</a></li>
-          <li><a class="white-text" href="#!">Link 4</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-    </div>
-  </div>
-</footer>
-
-
-
-<!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script type="text/javascript" src="js/cmd.js"></script>
-
-
-
-</body>
+      <!-- FIN Form container  --> 
+      <!-- Footer -->
+      <footer class="page-footer orange">
+         <div class="container">
+            <div class="row">
+               <div class="col l6 s12">
+                  <h5 class="white-text">Company Bio</h5>
+                  <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job.</p>
+               </div>
+               <div class="col l3 s12">
+                  <h5 class="white-text">Settings</h5>
+                  <ul>
+                     <li><a class="white-text" href="#!">Link 1</a></li>
+                     <li><a class="white-text" href="#!">Link 2</a></li>
+                     <li><a class="white-text" href="#!">Link 3</a></li>
+                     <li><a class="white-text" href="#!">Link 4</a></li>
+                  </ul>
+               </div>
+               <div class="col l3 s12">
+                  <h5 class="white-text">Connect</h5>
+                  <ul>
+                     <li><a class="white-text" href="#!">Link 1</a></li>
+                     <li><a class="white-text" href="#!">Link 2</a></li>
+                     <li><a class="white-text" href="#!">Link 3</a></li>
+                     <li><a class="white-text" href="#!">Link 4</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="footer-copyright">
+            <div class="container">
+               Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            </div>
+         </div>
+      </footer>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/cmd.js"></script>
+   </body>
 </html>
-
-
-
-
-

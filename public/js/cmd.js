@@ -18,31 +18,29 @@ $(document).ready(function() {
 	/* this activates the "which columns to display" selectbox */
 	
 	// ARCHEYPE Selector
-	$('#archetype-selector').on('change',function() {
-		var e = document.getElementById("archetype-selector");
+	$('#archetypeSelector').on('change',function() {
+		var e = document.getElementById("archetypeSelector");
 		var selectedOption = e.options[e.selectedIndex].value;
-		console.log('[ready]:[archetype-selector]: showing: ' + selectedOption);
+		console.log('[ready]:[archetypeSelector]: showing: ' + selectedOption);
 
 		// set fields according archetype 
 		showInputsByArchetype(selectedOption);
 	});
 	// Init archetype selector when document.ready
-	$('#archetype-selector').material_select();
-
-
+	$('#archetypeSelector').material_select();
 
 
 	// SAP TYPE Selector
-	$('#sap-selector').on('change',function() {
-		var e = document.getElementById("sap-selector");
+	$('#sapSelector').on('change',function() {
+		var e = document.getElementById("sapSelector");
 		var typeSelected = e.options[e.selectedIndex].value;
-		console.log('[ready]:[sap-selector]: showing sap type: ' + typeSelected);
+		console.log('[ready]:[sapSelector]: showing sap type: ' + typeSelected);
 
 			// set fields according archetype 
 			showInputsBySapType(typeSelected);
 		});
 	// Init sapType selector when document.ready
-	$('#sap-selector').material_select();
+	$('#sapSelector').material_select();
 
 
 
@@ -154,8 +152,3 @@ function showInputsByArchetype(selectedOption){
 
 			}
 		}
-
-
-// Commit Type: chore, docs, feat, fix, refactor, style, or test.
-// feat(selectorArchetype):show fields according to archetype-[LITE/SAP]
-// feat()
