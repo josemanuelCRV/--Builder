@@ -41,7 +41,6 @@ $(document).ready(function() {
     $('#sapSelector').material_select();
 
 
-
     // Init tootip
     $('.tooltipped').tooltip({
         delay: 50
@@ -51,7 +50,6 @@ $(document).ready(function() {
     Materialize.updateTextFields();
 
 });
-
 
 
 

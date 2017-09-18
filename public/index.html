@@ -19,10 +19,10 @@
             <img src="/images/logo_BANKIA.svg" alt="Bankia">
             </a>
             <ul class="right hide-on-med-and-down">
-               <li><a href="#">Navbar Link</a></li>
+               <li><a href="#">Pergamo</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
-               <li><a href="#">Navbar Link</a></li>
+               <li><a href="#">Pergamo</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
          </div>
@@ -33,7 +33,7 @@
             <br><br>
             <h1 class="header center orange-text">έργου-Builder </h1>
             <div class="row center">
-               <h5 class="header col s12 light">Generate a Maven Project</h5>
+               <h5 class="header col s12 light">Maven projects wizard</h5>
             </div>
             <br><br>
          </div>
@@ -68,35 +68,40 @@
                      <!-- ArtifactId -->
                      <div class="row">
                         <div class="input-field col s12">
-                           <input placeholder="<AbrirExpedienteSBP>" id="artifactId" name="artifactId" type="text"  onchange="generatePackageName()" required>
+                           <input id="artifactId" name="artifactId" type="text"  onchange="generatePackageName()" 
+                             class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Nombre del artefacto. Ejemplo: <AbrirExpedienteSBP>" required/>
                            <label for="artifactId">ArtifactId</label>
                         </div>
+                        <!-- <a class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">Hover me!</a> -->
                      </div>
                      <!-- GroupID -->
                      <div class="row" id="groupId" name="groupId">
                         <div class="input-field col s12">
-                           <input placeholder="<com.bankia.ioi>" id="groupId" name="groupId" type="text" onchange="generatePackageName()" required>
+                           <input id="groupId" name="groupId" type="text" onchange="generatePackageName()"
+                           class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Grupo funcional. <com.bankia.ioi>" required/>
                            <label for="groupId">GroupID</label>
                         </div>
                      </div>
                      <!-- Version -->
                      <div class="row" id="version" name="version">
                         <div class="input-field col s12">
-                           <input placeholder="<1.0.0-SNAPSHOT>" id="version" name="version" type="text" class="validate" required>
+                           <input id="version" name="version" type="text" class="tooltipped" data-position="bottom" 
+                           data-delay="50" data-tooltip="Versión del artefacto. <1.0.0-SNAPSHOT>" required/>
                            <label for="version">Version</label>
                         </div>
                      </div>
                      <!-- Package -->
                      <div class="row" id="package" name="package">
                         <div class="input-field col s12">
-                           <input placeholder="<com.bankia.ioi>" id="packageName" name="packageName" type="text" required>
+                           <input placeholder="[Nombre de paquetería auto-generada]" id="packageName" name="packageName" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Paquetería auto-generada por defecto. <com.bankia.ioi.AbrirExpedienteSBP>" required/>
                            <label for="package">Package</label>
                         </div>
                      </div>
                      <!-- FlowNameFolder LITE-->
                      <div class="row" id="flowNameFolder" name="flowNameFolder">
                         <div class="input-field col s12">
-                           <input placeholder="<cuentas/expedientes>" id="flowNameFolder" name="flowNameFolder" type="text">
+                           <input id="flowNameFolder" name="flowNameFolder" type="text" 
+                           class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Estructura de directorios. <cuentas/expedientes>"/>
                            <label for="flowNameFolder">FlowNameFolder</label>
                         </div>
                      </div>
@@ -118,91 +123,103 @@
                      <!-- FUID  LITE-->
                      <div class="row" id="fuid" name="fuid">
                         <div class="input-field col s12">
-                           <input placeholder="<0001>" id="fuid" name="fuid" type="text" class="validate">
+                           <input id="fuid" name="fuid" type="text"
+                           class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Identificador del flujo. Facilitado por negocio. <0001>"/>
                            <label for="fuid">FUID</label>
                         </div>
                      </div>
                      <!-- servicioName  SAP-->
                      <div class="row" id="servicioName" name="servicioName" style="display:none;">
                         <div class="input-field col s12">
-                           <input placeholder="<NP>" id="servicioName" name="servicioName" type="text" class="validate">
+                           <input id="servicioName" name="servicioName" type="text"
+                            class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Nombre del servicio. <NP>"/>
                            <label for="servicioName">ServiceName</label>
                         </div>
                      </div>
                      <!-- SBP_Version LITE -->
                      <div class="row" id="sbpVersion" name="sbpVersion">
                         <div class="input-field col s12">
-                           <input placeholder="<1_0>" id="sbpVersion" name="sbpVersion" type="text" class="validate">
+                           <input id="sbpVersion" name="sbpVersion" type="text"
+                           class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Guión bajo en lugar de punto. <1_0>"/>
                            <label for="sbpVersion">SBP_Version</label>
                         </div>
                      </div>
                      <!-- servicioVersion SAP -->
                      <div class="row" id="servicioVersion" name="servicioVersion" style="display:none;">
                         <div class="input-field col s12">
-                           <input placeholder="<1_0>" id="servicioVersion" name="servicioVersion" type="text" class="validate">
+                           <input id="servicioVersion" name="servicioVersion" type="text"
+                           class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Guión bajo en lugar de punto. <1_0>"/>
                            <label for="servicioVersion">ServicieVersion</label>
                         </div>
                      </div>
                      <!-- Action_1 LITE-->
                      <div class="row" id="action1" name="action1">
                         <div class="input-field col s12">
-                           <input placeholder="<AbrirExpediente>" id="action1" name="action1" type="text" class="validate">
+                           <input id="action1" name="action1" type="text"
+                            class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Nombre de action1 <AbrirExpediente>"/>
                            <label for="action1">Action_1</label>
                         </div>
                      </div>
                      <!-- cacheable SAP-->
                      <div class="row" id="cacheable" name="cacheable" style="display:none;">
                         <div class="input-field col s12">
-                           <input placeholder="<NO / SI>" id="cacheable" name="cacheable" type="text" class="validate">
+                           <input id="cacheable" name="cacheable" type="text"
+                           class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="<SI/NO> Por defecto NO"/>
                            <label for="cacheable">Cacheable</label>
                         </div>
                      </div>
                      <!-- Action_1_Composite LITE-->
                      <div class="row" id="action1Composite" name="action1Composite">
                         <div class="input-field col s12">
-                           <input placeholder="<SI (flujo compuesto)/ NO (flujo simple-Valor por defecto)>" id="action1Composite" name="action1Composite" type="text" class="validate">
+                           <input id="action1Composite" name="action1Composite" type="text" class="tooltipped" data-position="bottom" 
+                           data-delay="50" data-tooltip="<SI (flujo compuesto) / NO (flujo simple-Valor por defecto)>"/>
                            <label for="action1Composite">Action_1_Composite</label>
                         </div>
                      </div>
                      <!-- Din SAP-->
                      <div class="row" id="in" name="in" style="display:none;">
                         <div class="input-field col s12">
-                           <input placeholder="<SI / NO >" id="in" name="in" type="text" class="validate">
+                           <input id="in" name="in" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="<SI/NO> Por defecto NO"//>
                            <label for="action1Composite">Din</label>
                         </div>
                      </div>
                      <!-- Servicio_1_Name LITE-->
                      <div class="row" id="servicio1Name" name="servicio1Name">
                         <div class="input-field col s12">
-                           <input placeholder="<AbrirExpedienteSNG>" id="servicio1Name" name="servicio1Name" type="text" class="validate">
+                           <input id="servicio1Name" name="servicio1Name" type="text"
+                            class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Nombre del servicio. <AbrirExpedienteSNG>"/>
                            <label for="servicio1Name">Servicio_1_Name</label>
                         </div>
                      </div>
                      <!-- sapVersion SAP-->
                      <div class="row" id="sapVersion" name="sapVersion" style="display:none;">
                         <div class="input-field col s12">
-                           <input placeholder="<sapVersion>" id="sapVersion" name="sapVersion" type="text" class="validate">
+                           <input id="sapVersion" name="sapVersion" type="text"
+                           class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Guión bajo en lugar de punto. <1_0>"/>
                            <label for="sapVersion">SAP-Version</label>
                         </div>
                      </div>
                      <!-- Servicio_1_Version -LITE -->
                      <div class="row" id="servicio1Version" name="servicio1Version">
                         <div class="input-field col s12">
-                           <input placeholder="<1.0>" id="servicio1Version" name="servicio1Version" type="text" class="validate">
+                           <input id="servicio1Version" name="servicio1Version" type="text"
+                           class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Versión del Servicio.<1.0>"/>
                            <label for="servicio1Version">Servicio_1_Version</label>
                         </div>
                      </div>
                      <!-- sapDescription SAP -->
                      <div class="row" id="sapDescription" name="sapDescription" style="display:none;">
                         <div class="input-field col s12">
-                           <input placeholder="<Unknowed>" id="sapDescription" name="sapDescription" type="text" class="validate">
+                           <input id="sapDescription" name="sapDescription" type="text"
+                            class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Descripción breve del componente <Unknowed>"/>
                            <label for="sapDescription">SAP-Description</label>
                         </div>
                      </div>
                      <!-- sapFolder SAP -->
                      <div class="row" id="sapFolder" name="sapFolder" style="display:none;">
                         <div class="input-field col s12">
-                           <input placeholder="<SAP/FOLDER>" id="sapFolder" name="sapFolder" type="text" class="validate">
+                           <input id="sapFolder" name="sapFolder" type="text"
+                           class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="<SAP/FOLDER>"/>
                            <label for="sapFolder">SAP-Folder</label>
                         </div>
                      </div>
@@ -220,15 +237,15 @@
       </div>
       <!-- END Form container  --> 
       <!-- Footer -->
-      <footer class="page-footer orange">
+      <footer class="page-footer" style="background-color: #B2C300">
          <div class="container">
             <div class="row">
                <div class="col l6 s12">
-                  <h5 class="white-text">Company Bio</h5>
-                  <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job.</p>
+                  <h5 class="white-text">Novedades y Avisos</h5>
+                  <p class="grey-text text-lighten-4">Suscríbase a la sección de <a class="teal-text" href="#!"><b>Novedades y Avisos</b></a> de Pérgamo para mantenerse<br>informado sobre las últimas versiones de componentes, herramientas y actualizaciones.</p>
                </div>
                <div class="col l3 s12">
-                  <h5 class="white-text">Settings</h5>
+                  <h5 class="white-text">Documentación</h5>
                   <ul>
                      <li><a class="white-text" href="#!">Link 1</a></li>
                      <li><a class="white-text" href="#!">Link 2</a></li>
@@ -237,7 +254,7 @@
                   </ul>
                </div>
                <div class="col l3 s12">
-                  <h5 class="white-text">Connect</h5>
+                  <h5 class="white-text">Repositorios</h5>
                   <ul>
                      <li><a class="white-text" href="#!">Link 1</a></li>
                      <li><a class="white-text" href="#!">Link 2</a></li>
@@ -249,7 +266,7 @@
          </div>
          <div class="footer-copyright">
             <div class="container">
-               Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+               Powered by <a class="orange-text text-lighten-3" href="#">ARQCAN</a>
             </div>
          </div>
       </footer>
