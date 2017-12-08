@@ -135,7 +135,7 @@ function runCommand(res, params) {
     switch (`${params.archselector}`) {
         case 'lite': // Run maven command LITE ==> [maven-archetype-quickstart]
             console.log("[Processing runCommand]: case Lite")
-            nrc.run(`mvn.cmd archetype:generate -DgroupId=${params.groupId} -DartifactId=${params.artifactId} -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`)
+            nrc.run(`mvn archetype:generate -DgroupId=${params.groupId} -DartifactId=${params.artifactId} -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`)
                 .then((exitCodes) => {
                     console.log(`exitcodes: ${exitCodes}`);
                     if (exitCodes == 0) {
@@ -149,7 +149,7 @@ function runCommand(res, params) {
 
         case 'flow': // Run maven command FLOW ==> [maven-archetype-j2ee-simple]
             console.log("[Processing runCommand]: case FLOW")
-            nrc.run(`mvn.cmd archetype:generate -DgroupId=${params.groupId} -DartifactId=${params.artifactId} -DarchetypeArtifactId=maven-archetype-j2ee-simple -DinteractiveMode=false`)
+            nrc.run(`mvn archetype:generate -DgroupId=${params.groupId} -DartifactId=${params.artifactId} -DarchetypeArtifactId=maven-archetype-j2ee-simple -DinteractiveMode=false`)
                 .then((exitCodes) => {
                     console.log(`exitcodes: ${exitCodes}`);
                     if (exitCodes == 0) {
@@ -163,7 +163,7 @@ function runCommand(res, params) {
 
         case 'sap': // Run maven command SAP ==> [maven-archetype-webapp]
             console.log("[Processing runCommand]: case SAP")
-            nrc.run(`mvn.cmd archetype:generate -DgroupId=${params.groupId} -DartifactId=${params.artifactId} -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false`)
+            nrc.run(`mvn archetype:generate -DgroupId=${params.groupId} -DartifactId=${params.artifactId} -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false`)
                 .then((exitCodes) => {
                     console.log(`exitcodes: ${exitCodes}`);
                     if (exitCodes == 0) {
@@ -177,7 +177,7 @@ function runCommand(res, params) {
 
         case 'enr': // Run maven command ENR ==> [archetype-site-simple]
             console.log("[Processing runCommand]: case ENR")
-            nrc.run(`mvn.cmd archetype:generate -DgroupId=${params.groupId} -DartifactId=${params.artifactId} -DarchetypeArtifactId=archetype-site-simple -DinteractiveMode=false`)
+            nrc.run(`mvn archetype:generate -DgroupId=${params.groupId} -DartifactId=${params.artifactId} -DarchetypeArtifactId=archetype-site-simple -DinteractiveMode=false`)
                 .then((exitCodes) => {
                     console.log(`exitcodes: ${exitCodes}`);
                     if (exitCodes == 0) {
